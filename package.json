@@ -1,0 +1,18 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "this is react by kishor",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/KishorKumarBabu/react)"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "kishor",
+  "license": "ISC"
+}
