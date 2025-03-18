@@ -2,9 +2,9 @@
   "name": "react",
   "version": "1.0.0",
   "description": "this is react by kishor",
-  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "react-scripts start"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,25 @@
   "author": "kishor",
   "license": "ISC",
   "dependencies": {
-    "parcel": "^2.13.3"
+    "parcel": "^2.13.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
   }
+
 }
