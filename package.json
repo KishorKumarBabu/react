@@ -4,8 +4,10 @@
   "description": "this is react by kishor",
   "scripts": {
     "test": "jest",
-    "start": "react-scripts start"
+    "start": "parcel index.html",
+    "build":"parcel build index.html"
   },
+
   "repository": {
     "type": "git",
     "url": "(https://github.com/KishorKumarBabu/react)"
