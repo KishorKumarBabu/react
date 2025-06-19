@@ -1,0 +1,83 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+
+    box-shadow:0px 0px 30px rgba(0, 0, 0, 0.25) ;
+    border-radius: 10px;
+
+}
+.logo{
+    width: 75px;
+    border-radius: 10px;
+
+}
+.navitem{
+    padding-right: 20px;
+}
+.navitem > ul{
+     display: flex;
+    list-style-type: none;
+    font-size: 24px;
+}
+.navitem > ul> li{
+    padding-right: 40px;
+}
+.search{
+    text-align: center;
+    padding: 10px;
+}
+.search-bar{
+    background: transparent;
+    border: none;
+    border-bottom: solid lightgray 2px;
+    width: 50%;
+    margin-top: 10px;
+    padding:10px;
+}
+.search-btn{
+    margin-left: 10px;
+    padding: 7px;
+    border: none;
+    background-color: lightgray;
+    border-radius: 5px;
+    font: italic 17px sans-serif;
+}
+.search-btn:hover{
+    color: white ;
+    
+}
+.rest-card{
+    width: 200px;
+    height:320px;
+    margin: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.6s ease;
+
+}
+.rest-container{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.rest-logo{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.rest-card h3{
+    margin: 5px;
+    font-size: 17px;
+}
+.rest-card h4{
+    margin: 5px;
+    display: inline-flex;
+    font-size: 15px;
+}
+.rest-card:hover{
+      border: 1px solid black;
+      transform:scale(1.05);
+      cursor: pointer;
+}
