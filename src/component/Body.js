@@ -1,4 +1,5 @@
 import Restcarted from "./Restcarted";
+import reslist from "../Utils/mockData";
 const Body = () => {
   return (
     <div className="body">

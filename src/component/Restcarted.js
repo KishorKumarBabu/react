@@ -1,3 +1,4 @@
+import { CDN_URL } from "../Utils/constants";
 const Restcarted = (props) => {
   const { restdata } = props;
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
@@ -7,10 +8,7 @@ const Restcarted = (props) => {
     <div className="rest-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         className="rest-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
+        src={CDN_URL + cloudinaryImageId}
         alt="ret-logo"
       />
       <h3>{name}</h3>

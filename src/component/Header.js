@@ -1,10 +1,11 @@
+import { LOGO_URL } from "../Utils/constants";
 const Header = () => {
   return (
     <div className="Header">
       <div className="logo-container">
         <img
           className="logo"
-          src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/39-Food-Delivery-Logos-That-Will-Leave-You-Hungry-For-More/sandwich-fries-food-truck-by-town-brandcrowd.png"
+          src={LOGO_URL}
           alt="logo"
         />
       </div>
