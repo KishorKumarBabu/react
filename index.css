@@ -48,7 +48,6 @@
 }
 .rest-card{
     width: 200px;
-    height:320px;
     margin: 20px;
     margin-left: 40px;
     border-radius: 10px;
@@ -80,4 +79,45 @@
       border: 1px solid black;
       transform:scale(1.05);
       cursor: pointer;
+}
+.filter-btn{
+    margin: 10px;
+}
+.filter-btn:hover{
+    cursor: pointer;
+}
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 75px;
+}
+
+.shimmer-card {
+  width: 220px;
+  height: 300px;
+  background: #f6f7f8;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 40px;
+}
+
+.shimmer-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(300px);
+  }
 }
