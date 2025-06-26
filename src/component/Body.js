@@ -11,7 +11,7 @@ const Body = () => {
 console.log(json)
 setlistofres(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)}
 
-// conditonal rendering
+// conditonal rendering 
 
   return listofres.length === 0 ? <Shimmer /> : (
     <div className="body">
