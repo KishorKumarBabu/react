@@ -15,7 +15,7 @@ const Restcarted = (props) => {
       <h4>{cuisines.join(", ")}</h4>
       <br />
       <h4>{deliveryTime} Mins</h4>
-      <h4>{avgRating} ⭐</h4>
+      <h4>{avgRating} ⭐</h4><br />
       <h4>Price:{costForTwo}</h4>
     </div>
   );

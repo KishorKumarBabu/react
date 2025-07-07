@@ -1,6 +1,7 @@
 import Restcarted from "./Restcarted";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listofres, setlistofres] = useState([]);
@@ -13,7 +14,7 @@ const Body = () => {
   const fetchdata = async () => {
     const data = await fetch(
       // use crosproxy to bypass cors error while diploying to web
-      
+
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&is-seo-homepage-enabled=true&offset=16&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
@@ -65,7 +66,12 @@ const Body = () => {
       </div>
       <div className="rest-container">
         {filteredrest.map((restaurant) => (
-          <Restcarted key={restaurant.info.id} restdata={restaurant} />
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurant/" + restaurant.info.id}
+          >
+            <Restcarted restdata={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
