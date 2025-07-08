@@ -1,4 +1,4 @@
-import Userclass from "./Userclass";
+
 const About=()=>{
     return(
   <div className="about-page-container">
@@ -71,9 +71,9 @@ const About=()=>{
 
       {/* Footer */}
       <footer className="about-footer">
-        © 2025 Devivary | Built with 💙 by our team
+         © 2025 Devivary | Built with 💙 by our team
       </footer>
-          <Userclass name={"kishor kumar"}/>
+
     </div>
 
   );

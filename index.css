@@ -418,12 +418,14 @@ a {
 }
 
 .menu-image {
+  position: relative;
   width: 150px;
   min-width: 150px;
   height: 120px;
   overflow: hidden;
   border-radius: 10px;
   background-color: #f0f0f0;
+  object-fit: cover;
 }
 
 .menu-image img {
@@ -431,4 +433,23 @@ a {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.add-to-card-btn {
+  position: absolute;
+  bottom: 1px;
+  right: 30px;
+  padding: 6px 12px;
+  font-size: 17px;
+  background-color: #f0f0f0;
+  color: #2ecc71;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 10px 20px;
+}
+
+.add-to-card-btn:hover {
+  background-color: lightgray;
 }
