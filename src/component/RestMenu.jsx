@@ -1,22 +1,12 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API_URL } from "../Utils/constants";
+import useRestaruntMenu from "../Utils/useRestaruntMenu";
 
 const RestMenu = () => {
-  const [restinfo, setrestinfo] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API_URL + resId);
-    const json = await data.json();
-    console.log(json, "JSON DATA");
-    setrestinfo(json.data);
-  };
+  const restinfo= useRestaruntMenu(resId)
 
   if (restinfo === null) return <Shimmer />;
   const {
@@ -65,8 +55,11 @@ const RestMenu = () => {
                   {item.card.info.price / 100 ||
                     item.card.info.defaultPrice / 100}
                 </h4>
-                <h5>{item.card.info.ratings.aggregatedRating.rating}</h5>
-                <p>({item.card.info.ratings.aggregatedRating.ratingCountV2})</p>
+                 <div className="rating">
+                    <h5>{item.card.info.ratings.aggregatedRating.rating}</h5>
+                    <p>({item.card.info.ratings.aggregatedRating.ratingCountV2})</p>
+                   </div>
+
                 <p>{item.card.info.description}</p>
               </div>
               {

@@ -403,13 +403,26 @@ a {
   margin: 8px 0;
   color: #2ecc71; /* price green */
 }
-
-.menu-content h5 {
-  margin: 4px 0;
-  display: inline-flexbox;
-  font-size: 14px;
-  color: #f39c12; /* rating orange */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Space between rating and count */
 }
+
+.rating h5 {
+  margin: 0;
+  font-size: 16px;
+  color: #f39c12;
+}
+
+.rating p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+
+
 
 .menu-content p {
   margin: 4px 0;
