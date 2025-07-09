@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaruntMenu from "../Utils/useRestaruntMenu";
 
+
 const RestMenu = () => {
   const { resId } = useParams();
 
@@ -74,7 +75,7 @@ const RestMenu = () => {
                   />
                   <button className="add-to-card-btn">ADD</button>
                 </div>
-              }{" "}
+              }
             </li>
           ))}
         </ul>
