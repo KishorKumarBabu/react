@@ -466,3 +466,36 @@ a {
 .add-to-card-btn:hover {
   background-color: lightgray;
 }
+
+/* game */
+
+.rps-container {
+  text-align: center;
+  padding: 50px;
+  background-color: lightgray;
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  margin: 50px;
+}
+
+.rps-button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.rps-button:hover {
+  background-color: #d1d1d1;
+}
+
+.rps-result {
+  margin-top: 30px;
+  font-size: 18px;
+}
+

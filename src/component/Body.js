@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import Game from "./Game";
 
 const Body = () => {
   const [listofres, setlistofres] = useState([]);
@@ -30,7 +31,7 @@ const Body = () => {
 
   const onlineStatus=useOnlineStatus();
 
-  if (onlineStatus===false) return <h1> your offline check your internet connction</h1>
+  if (onlineStatus===false) return <Game/>
 
   // conditonal rendering
 

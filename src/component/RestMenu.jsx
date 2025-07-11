@@ -3,7 +3,6 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaruntMenu from "../Utils/useRestaruntMenu";
 
-
 const RestMenu = () => {
   const { resId } = useParams();
 

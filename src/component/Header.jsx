@@ -13,7 +13,6 @@ const Header = () => {
       </div>
       <div className="navitem">
         <ul>
-          <li><Link to="/grocery">Grocery</Link></li>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>  
