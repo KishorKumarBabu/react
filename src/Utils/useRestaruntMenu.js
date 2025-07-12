@@ -17,3 +17,4 @@ const useRestaruntMenu=(resId)=>{
 }
 
 export default useRestaruntMenu
+
