@@ -9,9 +9,12 @@ const Body = () => {
   const [listofres, setlistofres] = useState([]);
   const [searchText, setsearchtext] = useState("");
   const [filteredrest, setfilteredrest] = useState(listofres);
+
+  console.log("list of res",listofres)
   useEffect(() => {
     fetchdata();
   }, []);
+
 
   const fetchdata = async () => {
     const data = await fetch(
