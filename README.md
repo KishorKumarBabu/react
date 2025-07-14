@@ -3,8 +3,504 @@ swiggy API=https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.2
 
 
 
-ratings
-: 
-aggregatedRating
-: 
-{rating: '4.4', ratingCount: '13 ratings', ratingCountV2: '13'}
+css
+.Header{
+    display: flex;
+    justify-content: space-between;
+
+    box-shadow:0px 0px 30px rgba(0, 0, 0, 0.25) ;
+    border-radius: 10px;
+
+}
+.logo{
+    width: 75px;
+    border-radius: 10px;
+
+}
+.navitem{
+    padding-right: 20px;
+}
+.navitem > ul{
+     display: flex;
+    list-style-type: none;
+    font-size: 24px;
+}
+.navitem > ul> li{
+    padding-right: 40px;
+    border-bottom: none;
+}
+.search{
+    text-align: center;
+    padding: 10px;
+}
+.search-bar{
+    background: transparent;
+    border: none;
+    border-bottom: solid lightgray 2px;
+    width: 50%;
+    margin-top: 10px;
+    padding:10px;
+}
+.search-btn{
+    margin-left: 10px;
+    padding: 7px;
+    border: none;
+    background-color: lightgray;
+    border-radius: 5px;
+    font: italic 17px sans-serif;
+}
+.search-btn:hover{
+    color: white ;
+    
+}
+.rest-card{
+    width: 200px;
+    height: 325px;
+    margin: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.6s ease;
+
+}
+.rest-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.rest-logo{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.rest-card h3{
+    margin: 5px;
+    font-size: 17px;
+}
+.rest-card h4{
+    margin: 5px;
+    display: inline-flex;
+    font-size: 15px;
+}
+.rest-card:hover{
+      border: 1px solid black;
+      transform:scale(1.05);
+      cursor: pointer;
+}
+.filter-btn{
+    margin: 10px;
+}
+.filter-btn:hover{
+    cursor: pointer;
+}
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 75px;
+}
+
+.shimmer-card {
+  width: 220px;
+  height: 300px;
+  background: #f6f7f8;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 40px;
+}
+
+.shimmer-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(300px);
+  }
+}
+.login-btn{
+    padding: 5px 10px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+/* about page stile */
+.about-page-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.about-hero, .about-mission, .about-features {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #cc3f3f20;
+}
+
+.about-title {
+  color: #cc3f3f;
+  margin-bottom: 10px;
+}
+
+.about-features ul {
+  padding-left: 20px;
+}
+
+.about-footer {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin-top: 30px;
+}
+.about-story,
+.about-vision,
+.about-values,
+.about-team,
+.about-tech {
+  background: #ffffff;
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 5px solid #cc3f3f20;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.about-values ul {
+  padding-left: 1.5rem;
+}
+
+.about-values li {
+  margin-bottom: 10px;
+}
+
+.about-values strong {
+  color: #cc3f3f;
+}
+
+
+/* contact page style */
+.contactus-wrapper {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contactus-title {
+  text-align: center;
+  color: #2c2c2c;
+  margin-bottom: 25px;
+}
+
+.contactus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactus-form input,
+.contactus-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #f9f9f9;
+}
+
+.contactus-form button {
+  background-color: #cc3f3f;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contactus-form button:hover {
+  background-color: #a83434;
+}
+
+.contactus-info {
+  text-align: center;
+  color: #555;
+  margin-top: 30px;
+}
+
+.contactus-thankyou {
+  text-align: center;
+  color: green;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+a {
+  color: black; /* Change to any color you want */
+  text-decoration: none; /* Removes underline */
+}
+/* Scoped error page styles */
+.error-container {
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: errorFadeIn 0.8s ease-in-out;
+}
+
+/* Bounce animation for the emoji */
+.error-emoji {
+  font-size: 60px;
+  animation: bounce 1.5s infinite;
+  margin-bottom: 20px;
+}
+
+/* Titles and texts */
+.error-title {
+  font-size: 36px;
+  color: #cc3f3f;
+  margin-bottom: 10px;
+}
+
+.error-status {
+  font-size: 24px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Button with transition */
+.error-back-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.error-back-btn:hover {
+  background-color: #2c3e9e;
+  transform: scale(1.05);
+}
+
+/* Keyframes */
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* menu */
+.rest-menu-container {
+  padding: 30px;
+  max-width: 900px;
+  margin: 50px auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+}
+
+.rest-menu-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.rest-detail {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+}
+
+.rest-detail h4,
+.rest-detail p {
+  margin: 4px 0;
+  color: #666666;
+}
+
+.menu-container {
+  margin-top: 30px;
+}
+
+.menu-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #ffffff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, background 0.3s;
+}
+
+.menu-item:hover {
+  transform: scale(1.01);
+  background-color: #e6e6e6;
+}
+
+.menu-content {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.menu-content h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333333;
+}
+
+.menu-content h4 {
+  margin: 8px 0;
+  color: #2ecc71; /* price green */
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Space between rating and count */
+}
+
+.rating h5 {
+  margin: 0;
+  font-size: 16px;
+  color: #f39c12;
+}
+
+.rating p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+
+
+
+.menu-content p {
+  margin: 4px 0;
+  color: #666666;
+  font-size: 14px;
+}
+
+.menu-image {
+  position: relative;
+  width: 150px;
+  min-width: 150px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  object-fit: cover;
+}
+
+.menu-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.add-to-card-btn {
+  position: absolute;
+  bottom: 1px;
+  right: 30px;
+  padding: 6px 12px;
+  font-size: 17px;
+  background-color: #f0f0f0;
+  color: #2ecc71;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 10px 20px;
+}
+
+.add-to-card-btn:hover {
+  background-color: lightgray;
+}
+
+/* game */
+
+.rps-container {
+  text-align: center;
+  padding: 50px;
+  background-color: lightgray;
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  margin: 50px;
+}
+
+.rps-button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.rps-button:hover {
+  background-color: #d1d1d1;
+}
+
+.rps-result {
+  margin-top: 30px;
+  font-size: 18px;
+}

@@ -38,39 +38,43 @@ const Body = () => {
   return listofres.length === 0 ? (
     <Shimmer />
   ) : (
+
     <div className="body">
       <div className="filter">
-        <div className="search">
-          <input
-            className="search-bar"
-            type="text"
-            placeholder="Search food iteam"
-            value={searchText}
-            onChange={(e) => setsearchtext(e.target.value)}
-          />
-          <button
-            className="search-btn"
-            onClick={() => {
-              const filteredrest = listofres.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setfilteredrest(filteredrest);
-            }}
-          >
-            Search
-          </button>
-        </div>
+        
+          <div className="text-center p-2">
+      <input
+        className="bg-transparent border-b-2 border-gray-300 w-1/2 mt-2 p-2 focus:outline-none"
+        type="text"
+        placeholder="Search food item"
+        value={searchText}
+        onChange={(e) => setsearchtext(e.target.value)}
+      />
+      <button
+        className="ml-2 p-2 bg-gray-300 rounded text-[17px] italic hover:text-white"
+        onClick={() => {
+          const filteredrest = listofres.filter((res) =>
+            res.info.name.toLowerCase().includes(searchText.toLowerCase())
+          );
+          setfilteredrest(filteredrest);
+        }}
+      >
+        Search
+      </button>
+    </div>
+        
         <button
-          className="filter-btn"
-          onClick={() => {
-            filteredlist = listofres.filter((res) => res.info.avgRating > 4.5);
-            setfilteredrest(filteredlist);
-          }}
-        >
-          Top Rating
-        </button>
+  className="ml-[70px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 active:scale-95 transition-all duration-200 shadow-md"
+  onClick={() => {
+    const filteredlist = listofres.filter((res) => res.info.avgRating > 4.5);
+    setfilteredrest(filteredlist);
+  }}
+>
+  Top Rating
+</button>
+
       </div>
-      <div className="rest-container">
+      <div className="flex flex-wrap justify-center">
         {filteredrest.map((restaurant) => (
           <Link
             key={restaurant.info.id}
