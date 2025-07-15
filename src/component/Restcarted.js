@@ -1,8 +1,7 @@
 import { CDN_URL } from "../Utils/constants";
 const Restcarted = (props) => {
   const { restdata } = props;
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
-    restdata?.info;
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } = restdata?.info;
   const { deliveryTime } = restdata?.info?.sla;
   return (
    <div
@@ -37,4 +36,15 @@ const Restcarted = (props) => {
 
   );
 };
+
+export const isopenlable=(Restcarted)=>{
+  return (props) => {
+    return(
+      <div className="rest-card relative group hover:scale-105 transition-all">
+        <label className="absolute bg-black text-white italic text-[10px] p-1 px-3 ml-10 rounded-md shadow-2xl  z-10">Open</label>
+        <Restcarted {...props}/>
+      </div>
+    )
+  }
+}
 export default Restcarted;

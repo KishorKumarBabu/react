@@ -1,4 +1,4 @@
-import Restcarted from "./Restcarted";
+import Restcarted , {isopenlable} from "./Restcarted";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,6 +9,8 @@ const Body = () => {
   const [listofres, setlistofres] = useState([]);
   const [searchText, setsearchtext] = useState("");
   const [filteredrest, setfilteredrest] = useState(listofres);
+
+  const Restcartedisopen= isopenlable(Restcarted)
 
   console.log("list of res",listofres)
   useEffect(() => {
@@ -83,7 +85,10 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <Restcarted restdata={restaurant} />
+            {
+              restaurant.info.isOpen ?<Restcartedisopen restdata={restaurant} />: <Restcarted restdata={restaurant} />
+            }
+           
           </Link>
         ))}
       </div>

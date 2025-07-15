@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaruntMenu from "../Utils/useRestaruntMenu";
+import Rescatagory from "./Rescatagory";
 
 const RestMenu = () => {
   const { resId } = useParams();
 
   const restinfo= useRestaruntMenu(resId)
+
+  const [showIndex, setshowIndex]=useState(0)
 
   if (restinfo === null) return <Shimmer />;
   const {
@@ -17,13 +20,12 @@ const RestMenu = () => {
     totalRatingsString,
     sla,
   } = restinfo?.cards[2]?.card?.card?.info || {};
+  console.log(restinfo)
 
-  const menuCards = restinfo?.cards?.find((card) => card?.groupedCard)
-    ?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-
-  const itemCards = menuCards
-    ?.filter((c) => c.card?.card?.itemCards)
-    ?.flatMap((c) => c.card.card.itemCards);
+  const itemCards = restinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card.card.itemCards ||{}
+ 
+const catagories = restinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"]==='type.googleapis.com/swiggy.presentation.food.v2.ItemCategory')
+console.log(catagories,"catagorys")
   if (itemCards === null) return <Shimmer />;
 
   console.log(itemCards, "CARD DATA");
@@ -40,54 +42,25 @@ const RestMenu = () => {
     <p className="text-gray-500 text-sm">{sla.slaString}</p>
   </div>
 
-  <h2 className="text-2xl font-semibold mb-4 text-gray-800">MENU</h2>
+  <div className="flex items-center justify-center gap-2 my-4">
+  <span className="text-gray-400 text-2xl">✦─── </span>
+  <h2 className="text-xl font-bold">MENU</h2>
+  <span className="text-gray-400 text-2xl"> ───✦</span>
+</div>
 
-  <div className="space-y-5">
-    {itemCards.map((item, index) => (
-      <div
-        key={`${item.card.info.id || "no-id"}-${index}`}
-        className="flex justify-between items-start bg-white p-5 rounded-xl shadow hover:scale-[1.01] transition-transform"
-      >
-        <div className="flex-1 pr-6">
-          <h3 className="text-lg font-bold text-gray-800 mb-1">
-            {item.card.info.name}
-          </h3>
-          <h4 className="text-green-500 font-medium mb-2">
-            ₹
-            {(item.card.info.price || item.card.info.defaultPrice) / 100}
-          </h4>
+{/*  menu */}
 
-          <div className="flex items-center gap-2 mb-2">
-            <h5 className="text-yellow-500 font-semibold text-sm">
-              {item.card.info.ratings?.aggregatedRating?.rating}
-            </h5>
-            <p className="text-sm text-gray-500">
-              ({item.card.info.ratings?.aggregatedRating?.ratingCountV2})
-            </p>
-          </div>
+ {catagories?.map((catagory,index) => (
+  <Rescatagory
+    key={catagory.card.card.title || catagory.card.card.categoryId}
+    data={catagory.card.card} showItem={index=== showIndex? true : false}
+     setshowIndex={() =>
+    setshowIndex(index === showIndex ? null : index)
+  }
+  />
+))}
 
-          <p className="text-sm text-gray-600">
-            {item.card.info.description}
-          </p>
-        </div>
 
-        <div className="relative w-36 min-w-[150px] h-[120px] rounded-lg overflow-hidden bg-gray-200">
-          <img
-            src={
-              item.card.info.imageId
-                ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item.card.info.imageId}`
-                : "data:image/png;base64,iVBORw0K..." // fallback base64 string
-            }
-            alt={item.card.info.name}
-            className="w-full h-full object-cover rounded-lg"
-          />
-          <button className="absolute bottom-1 right-10 bg-gray-100 text-green-500 font-medium text-sm px-4 py-2 rounded-md hover:bg-gray-300 transition">
-            ADD
-          </button>
-        </div>
-      </div>
-    ))}
-  </div>
 </div>
 
   );
