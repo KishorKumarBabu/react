@@ -1,9 +1,10 @@
 import Restcarted , {isopenlable} from "./Restcarted";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import Game from "./Game";
+import Usercontext from "./Usercontext";
 
 const Body = () => {
   const [listofres, setlistofres] = useState([]);
@@ -37,7 +38,7 @@ const Body = () => {
   const onlineStatus=useOnlineStatus();
 
   if (onlineStatus===false) return <Game/>
-
+ const {setuserName, loggedInUser}= useContext(Usercontext)
   // conditonal rendering
 
   return listofres.length === 0 ? (
@@ -69,7 +70,7 @@ const Body = () => {
     </div>
         
         <button
-  className="ml-[70px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 active:scale-95 transition-all duration-200 shadow-md"
+  className=" flex ml-[70px] px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 active:scale-95 transition-all duration-200 shadow-md"
   onClick={() => {
     const filteredlist = listofres.filter((res) => res.info.avgRating > 4.5);
     setfilteredrest(filteredlist);
@@ -77,8 +78,8 @@ const Body = () => {
 >
   Top Rating
 </button>
-
       </div>
+       
       <div className="flex flex-wrap justify-center">
         {filteredrest.map((restaurant) => (
           <Link
