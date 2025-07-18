@@ -4,8 +4,8 @@ const About=()=>{
 <div className="max-w-4xl mx-auto mt-16 p-10 bg-gray-200 rounded-xl shadow-lg font-sans animate-fade-in">
   {/* Hero Section */}
   <section className="bg-white p-6 mb-6 rounded-lg border-l-4 border-red-200">
-    <h1 className="text-3xl font-semibold text-red-600 mb-2">Welcome to Devivary</h1>
-    <p className="text-gray-700">Your delivery partner for fresh food, fast service, and smarter choices.</p>
+    <h1 className="text-3xl font-semibold text-red-600 mb-2">Welcome to Zapeats</h1>
+    <p className="text-gray-700">Your Zapeats partner for fresh food, fast service, and smarter choices.</p>
   </section>
 
   {/* Mission */}
@@ -29,7 +29,7 @@ const About=()=>{
   <section className="bg-white p-6 my-6 rounded-lg border-l-4 border-red-200 shadow-sm">
     <h2 className="text-xl font-semibold mb-2">📖 Our Story</h2>
     <p className="text-gray-700">
-      Devivary started with a passion to bridge the gap between food lovers and their favorite restaurants.
+      Zapeats started with a passion to bridge the gap between food lovers and their favorite restaurants.
       What began as a small local service has now expanded across cities, delivering thousands of meals daily with care and speed.
     </p>
   </section>
@@ -64,14 +64,14 @@ const About=()=>{
   <section className="bg-white p-6 my-6 rounded-lg border-l-4 border-red-200 shadow-sm">
     <h2 className="text-xl font-semibold mb-2">⚙️ Powered by Technology</h2>
     <p className="text-gray-700">
-      From GPS-tracked deliveries to AI-powered route optimization, Devivary runs on innovation. 
+      From GPS-tracked deliveries to AI-powered route optimization, Zapeats runs on innovation. 
       Our platform ensures efficiency at every touchpoint for users, partners, and riders.
     </p>
   </section>
 
   {/* Footer */}
   <footer className="text-center text-gray-500 text-sm mt-8">
-    © 2025 Devivary | Built with 💙 by our team
+    © 2025 Zapeats | Built with 💙 by our team
   </footer>
 </div>
 

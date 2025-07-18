@@ -6,7 +6,8 @@ const Contact = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setTimeout(() => {
@@ -59,7 +60,7 @@ const Contact = () => {
   )}
 
   <div className="text-center text-gray-600 mt-8 space-y-2">
-    <p>📧 support@devivary.in</p>
+    <p>📧 support@Zapeats.in</p>
     <p>📞 +91 98765 43210</p>
     <p>📍 Chennai, Tamil Nadu</p>
   </div>
