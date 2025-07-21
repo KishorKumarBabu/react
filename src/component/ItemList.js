@@ -2,10 +2,9 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../Utils/cardSlice";
 
 const ItemList = ({ items, dummy }) => {
-      const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handeladdItem = (item) => {
-
-dispatch(addItem(item))
+    dispatch(addItem(item));
   };
   return (
     <div className="space-y-5 my-8 ">
@@ -50,7 +49,7 @@ dispatch(addItem(item))
             />
             <button
               className="absolute bottom-1 right-10 bg-gray-100 text-green-500 font-medium text-sm px-4 py-2 rounded-md hover:bg-gray-300 transition"
-              onClick={()=> handeladdItem(item)}
+              onClick={() => handeladdItem(item)}
             >
               ADD
             </button>

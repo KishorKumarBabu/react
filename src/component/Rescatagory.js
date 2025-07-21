@@ -1,11 +1,10 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-
-const Rescatagory = ({ data, showItem,setshowIndex }) => {
-    const handleclick=()=>{
-        setshowIndex()
-    }
+const Rescatagory = ({ data, showItem, setshowIndex }) => {
+  const handleclick = () => {
+    setshowIndex();
+  };
   return (
     <div>
       <div className="w-6/11 bg-white mx-auto my-4 p-3 rounded-lg">
