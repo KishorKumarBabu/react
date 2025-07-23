@@ -22,7 +22,6 @@ test("should load boutton inside contact component ", () => {
 test("should load 2 input boxes or multiple",()=>{
   render(<Contact/>)
   const inputboxes = screen.getAllByRole("textbox")
-   console.log(inputboxes)
    expect(inputboxes.length).toBe(3)
 })
 })

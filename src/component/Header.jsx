@@ -1,11 +1,11 @@
 import { LOGO_URL } from "../Utils/constants";
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import { FiShoppingCart } from "react-icons/fi";
 import Usercontext from "./Usercontext";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
@@ -27,9 +27,11 @@ const Header = () => {
   };
 
   // Update button label when user logs in
-  if (loggedInUser && btnName === "Login") {
+useEffect(() => {
+  if (loggedInUser) {
     setbtnName("Logout");
   }
+}, [loggedInUser]);
 
   return (
     <div className="flex  justify-between items-center shadow-[0_0_30px_rgba(0,0,0,0.25)] rounded-[10px] m-2 p-2">

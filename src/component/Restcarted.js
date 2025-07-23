@@ -1,6 +1,7 @@
 import { CDN_URL } from "../Utils/constants";
 const Restcarted = (props) => {
   const { restdata } = props;
+  console.log(restdata)
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
     restdata?.info;
   const { deliveryTime } = restdata?.info?.sla;
