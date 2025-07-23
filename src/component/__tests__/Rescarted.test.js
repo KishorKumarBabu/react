@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import appStore from "../../Utils/appStore";
-import { mockData } from "../../Utils/mockData";
+import { mockData } from "../mokedata/mockData";
 describe("Restcarted Component with real data", () => {
   test("renders restaurant info correctly", () => {
     render(
