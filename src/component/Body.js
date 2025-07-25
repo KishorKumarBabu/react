@@ -18,21 +18,30 @@ const Body = () => {
     fetchdata();
   }, []);
 
-  const fetchdata = async () => {
-    const data = await fetch(
-      // use crosproxy to bypass cors error while diploying to web
+const fetchdata = async () => {
+  try {
+    const targetUrl =
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&is-seo-homepage-enabled=true&offset=16&page_type=DESKTOP_WEB_LISTING";
 
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&is-seo-homepage-enabled=true&offset=16&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
+    const proxyUrl = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`;
+
+    const response = await fetch(proxyUrl);
+    const json = await response.json();
+
     console.log(json);
+
+    // Update state
     setlistofres(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setfilteredrest(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-  };
+  } catch (error) {
+    console.error("Error fetching data via ThingProxy:", error);
+  }
+};
+
 
   const onlineStatus = useOnlineStatus();
 

@@ -7,11 +7,21 @@ const useRestaruntMenu = (resId) => {
   useEffect(() => {
     fetchData();
   }, []);
-  const fetchData = async () => {
-    const data = await fetch(MENU_API_URL + resId);
-    const json = await data.json();
+const fetchData = async () => {
+  try {
+    const targetUrl = MENU_API_URL + resId;
+    const proxyUrl = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`;
+
+    const response = await fetch(proxyUrl);
+    const json = await response.json();
+
+    // Update state with restaurant menu info
     setrestinfo(json.data);
-  };
+  } catch (error) {
+    console.error("Failed to fetch restaurant menu via ThingProxy:", error);
+  }
+};
+
   return restinfo;
 };
 
