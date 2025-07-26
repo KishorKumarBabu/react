@@ -23,20 +23,24 @@ const fetchdata = async () => {
     const targetUrl =
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&is-seo-homepage-enabled=true&offset=16&page_type=DESKTOP_WEB_LISTING";
 
-    const proxyUrl = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`;
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+
+
 
     const response = await fetch(proxyUrl);
-    const json = await response.json();
+const data = await response.json();
+const json = JSON.parse(data.contents); // because AllOrigins wraps the result
 
-    console.log(json);
+console.log(json);
 
-    // Update state
-    setlistofres(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setfilteredrest(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+// Update state
+setlistofres(
+  json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+);
+setfilteredrest(
+  json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+);
+
   } catch (error) {
     console.error("Error fetching data via ThingProxy:", error);
   }

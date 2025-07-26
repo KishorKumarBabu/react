@@ -9,18 +9,17 @@ const useRestaruntMenu = (resId) => {
   }, []);
 const fetchData = async () => {
   try {
-    const targetUrl = MENU_API_URL + resId;
-    const proxyUrl = `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(targetUrl)}`;
-
+    const targetUrl = encodeURIComponent(MENU_API_URL + resId);
+    const proxyUrl = `https://api.allorigins.win/get?url=${targetUrl}`;
     const response = await fetch(proxyUrl);
-    const json = await response.json();
-
-    // Update state with restaurant menu info
+    const result = await response.json();
+    const json = JSON.parse(result.contents);
     setrestinfo(json.data);
-  } catch (error) {
-    console.error("Failed to fetch restaurant menu via ThingProxy:", error);
+  } catch (err) {
+    console.error("AllOrigins fetch error:", err);
   }
 };
+
 
   return restinfo;
 };
