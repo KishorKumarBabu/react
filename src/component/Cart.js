@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem, clearCart } from "../Utils/cardSlice";
+import { useState } from "react";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getTotalAmount = () => {
     return cartItems.reduce((total, item) => {
@@ -14,13 +16,24 @@ const Cart = () => {
   };
 
   const handleBuyNow = () => {
-    alert("✅ Purchase Successful!\nThanks for your order.");
+    setShowSuccess(true);
     dispatch(clearCart());
+
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
 
   return (
-    <div className="p-8 max-w-4xl mx-auto text-center my-12 font-sans bg-gray-100 rounded-xl">
+    <div className="p-8 max-w-4xl mx-auto text-center my-12 font-sans bg-gray-100 rounded-xl relative">
       <h1 className="text-2xl font-bold mb-6">🛒 Your Cart</h1>
+
+      {showSuccess && (
+        <div className="absolute top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded-lg shadow-lg animate-bounce z-50">
+          <strong className="font-bold">✅ Purchase Successful!</strong>
+          <p>Thanks for your order.</p>
+        </div>
+      )}
 
       {cartItems.length === 0 ? (
         <p className="text-gray-500">Your cart is empty.</p>
@@ -78,7 +91,6 @@ const Cart = () => {
             );
           })}
 
-          {/* Total & Buy Button */}
           <div className="mt-6 flex justify-between items-center">
             <h2 className="text-xl font-semibold">
               Total Amount: ₹{getTotalAmount().toFixed(2)}
