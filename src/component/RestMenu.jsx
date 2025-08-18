@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import useRestaurantMenu from "../Utils/useRestaruntMenu";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
 import Rescatagory from "./Rescatagory";
 
 const RestMenu = () => {
@@ -81,4 +81,3 @@ const RestMenu = () => {
 };
 
 export default RestMenu;
-
