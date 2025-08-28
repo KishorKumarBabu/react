@@ -8,9 +8,18 @@ const useRestaruntMenu = (resId) => {
     fetchData();
   }, []);
   const fetchData = async () => {
-    const data = await fetch(MENU_API_URL + resId);
-    const json = await data.json();
-    setrestinfo(json.data);
+    try {
+      const targetUrl = encodeURIComponent(MENU_API_URL + resId);
+      const proxyUrl = `https://thingproxy.freeboard.io/fetch/${targetUrl}`;
+
+      const response = await fetch(proxyUrl);
+      const json = await response.json(); // directly usable
+
+      setrestinfo(json.data);
+      console.log(json);
+    } catch (err) {
+      console.error("AllOrigins fetch error:", err);
+    }
   };
   return restinfo;
 };
