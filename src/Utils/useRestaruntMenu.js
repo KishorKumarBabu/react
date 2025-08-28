@@ -2,24 +2,19 @@ import { useEffect, useState } from "react";
 import { MENU_API_URL } from "./constants";
 
 const useRestaruntMenu = (resId) => {
-  const [restinfo, setrestinfo] = useState(null);
-  // fetch the menu data data
+  const [restInfo, setRestInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
+    if (!resId) return;
     fetchData();
-  }, []);
+  }, [resId]); // ✅ refetch if restaurant id changes
+
   const fetchData = async () => {
-    try {
-      const targetUrl = encodeURIComponent(MENU_API_URL + resId);
-      const proxyUrl = `https://thingproxy.freeboard.io/fetch/${targetUrl}`;
-
-      const response = await fetch(proxyUrl);
-      const json = await response.json(); // directly usable
-
-      setrestinfo(json.data);
-      console.log(json);
-    } catch (err) {
-      console.error("AllOrigins fetch error:", err);
-    }
+    const data = await fetch(MENU_API_URL + resId);
+    const json = await data.json();
+    setrestinfo(json.data);
   };
   return restinfo;
 };
