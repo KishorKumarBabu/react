@@ -35,7 +35,9 @@ const Body = () => {
 
       const targetUrl =
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&is-seo-homepage-enabled=true&offset=16&page_type=DESKTOP_WEB_LISTING";
-      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+        targetUrl
+      )}`;
 
       const response = await fetch(proxyUrl);
       const data = await response.json();
@@ -130,9 +132,9 @@ const Body = () => {
             className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 active:scale-95"
           >
             Load More
-          </button> 
+          </button>
         </div>
-      )}   
+      )}
     </div>
   );
 };
